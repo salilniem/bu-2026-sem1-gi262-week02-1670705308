@@ -27,7 +27,6 @@ namespace Assignment
             // AS15_MakeTheTriangle();
             // AS16_MultiplicationTableOf_2_3_and_4();
             // EX_01_TicTacToeGame_TurnPlay();
-
         }
 
         #region Assignment
@@ -55,7 +54,7 @@ namespace Assignment
             }
 
             // สุ่ม Index ในช่วง 0 ถึง as01_items.Length - 1
-            int randomIndex = Random.Range(0, as01_items.Length);
+            int randomIndex = UnityEngine.Random.Range(0, as01_items.Length);
 
             // ดึง GameObject จาก Array ตาม Index ที่สุ่มได้
             GameObject selectedItem = as01_items[randomIndex];
@@ -141,7 +140,7 @@ namespace Assignment
                 for (int x = 0; x < as02_columns; x++)
                 {
                     // สุ่มเลือกชนิดของพื้นจาก Array
-                    int randomIndex = Random.Range(0, as02_floorTiles.Length);
+                    int randomIndex = UnityEngine.Random.Range(0, as02_floorTiles.Length);
                     GameObject obj = as02_floorTiles[randomIndex];
 
                     // วางวัตถุลงในตำแหน่ง Vector2(x, y)
@@ -344,6 +343,7 @@ namespace Assignment
                 Debug.LogWarning($"Target index {as04_target} is out of range!");
             }
         }
+
         /*
          * จงเขียนโปรแกรมเพื่อสร้าง for ลูป จาก 0 - (n-1)
          * โดยกำหนดให้ n รับค่าจากผู้ใช้
@@ -711,43 +711,6 @@ namespace Assignment
         /*
          * ให้นักศึกษาเขียนโปรแกรมเพื่อหาผลรวมของตัวเลขใน Row (แถว)
          *
-         * https://cdn-api.elice.io/api-attachment/attachment/8a7f0bbcdbd54117bef5a8742d99496c/image.png
-         *
-         * โดยกำหนดให้ มีตัวแปรดังนี้
-         *
-         * public int[,] matrix = {
-         *     { 1, 2, 3 },
-         *     { 4, 5, 6 },
-         *     { 7, 8, 9 } };
-         *
-         * โดยให้ใช้ for เพื่อหาผลรวมของตัวเลขใน Row ที่ระบุโดยตัวแปร public int row;
-         * และเข้าถึงขนาดของ column โดยใช้คำสั่ง matrix.GetLength(1)
-         *
-         * ตัวอย่างผลลัพธ์:
-         *
-         * Case 1 - ผลรวมของ Row #0 = 1 + 2 + 3
-         * Row ...
-         * 0
-         * 6
-         *
-         * Case 2 - ผลรวมของ Row #1 = 4 + 5 + 6
-         * Row ...
-         * 1
-         * 15
-         *
-         * Case 3 - ผลรวมของ Row #2 = 7 + 8 + 9
-         * Row ...
-         * 2
-         * 24
-         *
-         * การเข้าถึงขนาดของ 2D Array
-         * matrix.GetLength(1): ใช้เพื่อหาจำนวนคอลัมน์ในอาร์เรย์ matrix โดยที่ 1 หมายถึงมิติที่สอง (คอลัมน์)
-         * matrix.GetLength(0): ใช้เพื่อหาจำนวนแถวในอาร์เรย์ matrix โดยที่ 0 หมายถึงมิติแรก (แถว)
-         *
-         * หมายเหตุ: Unity ไม่รองรับการแสดงผล int[,] บน Inspector โดยตรง จึงใช้ class Grid2DInt
-         * แทน ซึ่งกรอกค่าเป็นตาราง (grid) ได้จาก Inspector เมื่อจะใช้งานเป็น 2D array จริงๆ ให้เรียก
-         * as13_matrix.Get2DArray()
-         *
          * พารามิเตอร์:
          * - matrix: 2D array ที่เก็บตัวเลข
          * - row: ดัชนีของแถว (Row) ที่ต้องการหาผลรวม
@@ -787,41 +750,6 @@ namespace Assignment
         /*
          * ให้นักศึกษาเขียนโปรแกรมเพื่อหาผลรวมของคอลัมน์
          *
-         * https://cdn-api.elice.io/api-attachment/attachment/1f5f0b4e6ee64c4f8040b43685c8a6f5/image.png
-         *
-         * โดยกำหนดให้ มีตัวแปรดังนี้
-         *
-         * public int[,] matrix = {
-         *     { 1, 2, 3 },
-         *     { 4, 5, 6 },
-         *     { 7, 8, 9 } };
-         *
-         * โดยให้ใช้ for เพื่อรวมผลลัพธ์และเข้าถึงขนาดของแถวโดยใช้คำสั่ง matrix.GetLength(0)
-         *
-         * ตัวอย่างผลลัพธ์:
-         *
-         * Case 1: ผลรวมของตัวเลขใน Column #0 = 1 + 4 + 7 = 12
-         * Col ...
-         * 0
-         * 12
-         *
-         * Case 2: ผลรวมของตัวเลขใน Column #1 = 2 + 5 + 8 = 15
-         * Col ...
-         * 1
-         * 15
-         *
-         * Case 3: ผลรวมของตัวเลขใน Column #2 = 3 + 6 + 9 = 18
-         * Col ...
-         * 2
-         * 18
-         *
-         * การเข้าถึงขนาดของ 2D Array
-         * myArray.GetLength(1): ใช้เพื่อหาจำนวนคอลัมน์ในอาร์เรย์ myArray โดยที่ 1 หมายถึงมิติที่สอง (คอลัมน์)
-         * myArray.GetLength(0): ใช้เพื่อหาจำนวนแถวในอาร์เรย์ myArray โดยที่ 0 หมายถึงมิติแรก (แถว)
-         *
-         * หมายเหตุ: เช่นเดียวกับ AS13 ตัวแปร matrix ถูกเก็บด้วย class Grid2DInt เพื่อให้แก้ไขค่าได้จาก
-         * Inspector เป็นตาราง เมื่อจะใช้งานเป็น 2D array จริงๆ ให้เรียก as14_matrix.Get2DArray()
-         *
          * พารามิเตอร์:
          * - matrix: 2D array ที่เก็บตัวเลข
          * - column: ดัชนีของคอลัมน์ (Column) ที่ต้องการหาผลรวม
@@ -860,200 +788,50 @@ namespace Assignment
 
         /*
          * จงเขียนโปรแกรมใน C# เพื่อแสดงวิธีคิดของการสร้างแผนที่ 3 เหลี่ยม โดยใช้ nested loop
-         * โดยมีตัวแปรดังนี้ :
-         * int size = 5;
-         *
-         * ลูปภายนอกควบคุมจำนวนแถว โดยเริ่มที่แถวที่ 1 และสิ้นสุดที่แถวที่ size
-         * for (int i = 1; i <= size; i++)
-         *
-         * ลูปภายในควบคุมจำนวนดาวในแต่ละแถว โดยจำนวนดาวจะเพิ่มขึ้นตามหมายเลขแถว :
-         * for (int j = ???????)
-         *
-         * พิมพ์อักขระ "*" ออกมา แทนการ Instantiate
-         * Debug.Log("*");
-         *
-         * ขึ้นบรรทัดใหม่ แทนการเลื่อนตำแหน่ง Y
-         * Console.WriteLine()
-         *
-         * ตัวอย่างผลลัพธ์:
-         *
-         * Size ...
-         * 5
-         * *
-         * **
-         * ***
-         * ****
-         * *****
-         *
-         * Size ...
-         * 10
-         * *
-         * **
-         * ***
-         * ****
-         * *****
-         * ******
-         * *******
-         * ********
-         * *********
-         * **********
          *
          * พารามิเตอร์:
          * - size: ความสูง / ขนาดของรูปสามเหลี่ยม
          */
         [Header("AS15_MakeTheTriangle")]
-        public int as15_size;
+        public int as15_size = 5;
 
         public void AS15_MakeTheTriangle()
         {
-            // วนลูปภายนอกควบคุมจำนวนแถว เริ่มต้นที่แถว 1 ถึง as15_size
+            // ลูปภายนอกควบคุมจำนวนแถว
             for (int i = 1; i <= as15_size; i++)
             {
-                // วนลูปภายในควบคุมจำนวนดาวในแต่ละแถว ให้จำนวนดาวเท่ากับหมายเลขแถว i
+                // ลูปภายในควบคุมจำนวนดาวในแต่ละแถว (j วนตั้งแต่ 1 ถึง i)
                 for (int j = 1; j <= i; j++)
                 {
                     Console.Write("*");
                 }
-                // ขึ้นบรรทัดใหม่เมื่อพิมพ์ดาวครบในแต่ละแถว
                 Console.WriteLine();
             }
-        }
-
-        /*
-         * จงเขียนโปรแกรมภาษา C# เพื่อแสดงตารางสูตรคูณ ตั้งแต่ 2 คูณ 1 ถึง 12 ไปจนถึง 4 คูณ 1 ถึง 12 โดยใช้ Nested Loop
-         * ใช้ \t เพื่อเว้นวรรคแท็บระหว่าง column (และในแต่ละบรรทัดจะต้องไม่ลงท้ายด้วย \t) เช่น
-         *
-         * 2 x 1 = 2\t3 x 1 = 3\t4 x 1 = 4   (สังเกตุว่าจะไม่มี \t ตามท้าย)
-         *
-         * Debug.Log("\t")
-         * หรือ line += "\t";
-         *
-         * ตัวอย่างผลลัพธ์:
-         *
-         * 2 x 1 = 2       3 x 1 = 3       4 x 1 = 4
-         * 2 x 2 = 4       3 x 2 = 6       4 x 2 = 8
-         * 2 x 3 = 6       3 x 3 = 9       4 x 3 = 12
-         * 2 x 4 = 8       3 x 4 = 12      4 x 4 = 16
-         * 2 x 5 = 10      3 x 5 = 15      4 x 5 = 20
-         * 2 x 6 = 12      3 x 6 = 18      4 x 6 = 24
-         * 2 x 7 = 14      3 x 7 = 21      4 x 7 = 28
-         * 2 x 8 = 16      3 x 8 = 24      4 x 8 = 32
-         * 2 x 9 = 18      3 x 9 = 27      4 x 9 = 36
-         * 2 x 10 = 20     3 x 10 = 30     4 x 10 = 40
-         * 2 x 11 = 22     3 x 11 = 33     4 x 11 = 44
-         * 2 x 12 = 24     3 x 12 = 36     4 x 12 = 48
-         */
-        [Header("AS16_MultiplicationTableOf_2_3_and_4")]
-        public void AS16_MultiplicationTableOf_2_3_and_4()
-        {
-            // วนลูปจากตัวคูณ 1 ถึง 12 (แถว)
-            for (int i = 1; i <= 12; i++)
-            {
-                string line = "";
-
-                // วนลูปตามแม่สูตรคูณ 2 ถึง 4 (คอลัมน์)
-                for (int m = 2; m <= 4; m++)
-                {
-                    line += $"{m} x {i} = {m * i}";
-
-                    // เติม \t หากไม่ใช่คอลัมน์สุดท้าย
-                    if (m < 4)
-                    {
-                        line += "\t";
-                    }
-                }
-
-                Debug.Log(line);
-            }
-        }
-
-        #region Extra assignment
-
-        [Header("EX_01_TicTacToeGame_TurnPlay")]
-        public Grid2DString ex01_board = new Grid2DString
-        {
-            rows = 3,
-            cols = 3,
-            data = new string[] {
-        "X", "X", "O",
-        "X", "O", "X",
-        "", "", ""
-    }
-        };
-        public string ex01_playerTurn = "O"; // กรอกเป็น X พิมพ์ใหญ่หรือ O พิมพ์ใหญ่เท่านั้น
-        public int ex01_row = 2;
-        public int ex01_column = 0;
-
-        public void EX_01_TicTacToeGame_TurnPlay()
-        {
-            var board = ex01_board.Get2DArray();
-
-            // 1. ตรวจสอบเงื่อนไข Invalid Move (ตำแหน่งไม่อยู่ในขอบเขต 0-2 หรือช่องนั้นถูกลงไปแล้ว)
-            if (ex01_row < 0 || ex01_row >= 3 || ex01_column < 0 || ex01_column >= 3 || !string.IsNullOrEmpty(board[ex01_row, ex01_column]))
-            {
-                PrintBoard(board);
-                Debug.Log(">> Invalid move");
-                return;
-            }
-
-            // 2. วางตัวเล่นของผู้เล่นในตำแหน่งที่กำหนด
-            board[ex01_row, ex01_column] = ex01_playerTurn;
-
-            // 3. แสดงผลตาราง TicTacToe หลังลงตำแหน่งแล้ว
-            PrintBoard(board);
-
-            // 4. ตรวจสอบเงื่อนไขการชนะ
-            if (CheckWin(board, ex01_playerTurn))
-            {
-                Debug.Log($">> {ex01_playerTurn} wins!");
-                return;
-            }
-
-            // 5. ตรวจสอบว่ายังมีช่องว่างเหลือหรือไม่
-            if (IsBoardFull(board))
-            {
-                Debug.Log(">> Draw");
-            }
-            else
-            {
-                Debug.Log(">> Continue");
-            }
-        }
-
-        // ฟังก์ชันตรวจสอบผู้ชนะ
-        private bool CheckWin(string[,] board, string p)
-        {
-            // ตรวจสอบแถวแนวนอน และ คอลัมน์แนวตั้ง
-            for (int i = 0; i < 3; i++)
-            {
-                if (board[i, 0] == p && board[i, 1] == p && board[i, 2] == p) return true;
-                if (board[0, i] == p && board[1, i] == p && board[2, i] == p) return true;
-            }
-
-            // ตรวจสอบแนวทแยงมุม
-            if (board[0, 0] == p && board[1, 1] == p && board[2, 2] == p) return true;
-            if (board[0, 2] == p && board[1, 1] == p && board[2, 0] == p) return true;
-
-            return false;
-        }
-
-        // ฟังก์ชันตรวจสอบว่ากระดานเต็มแล้วหรือยัง
-        private bool IsBoardFull(string[,] board)
-        {
-            for (int r = 0; r < 3; r++)
-            {
-                for (int c = 0; c < 3; c++)
-                {
-                    if (string.IsNullOrEmpty(board[r, c]))
-                    {
-                        return false; // ยังมีช่องว่างอยู่
-                    }
-                }
-            }
-            return true; // เต็มทุกช่องแล้ว
         }
 
         #endregion
     }
 
+    // โครงสร้างคลาสสำหรับรองรับ 2D Array บน Inspector
+    [Serializable]
+    public class Grid2DInt
+    {
+        public int rows;
+        public int cols;
+        public int[] data;
+
+        public int[,] Get2DArray()
+        {
+            if (data == null || data.Length != rows * cols) return null;
+            int[,] result = new int[rows, cols];
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    result[r, c] = data[r * cols + c];
+                }
+            }
+            return result;
+        }
+    }
 }
