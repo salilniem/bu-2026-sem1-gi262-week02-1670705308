@@ -10,8 +10,8 @@ namespace Assignment
 
         void Start()
         {
-            // LCT01_SyntaxArray();
-            // LCT02_ArrayInitialize();
+            //LCT01_SyntaxArray();
+            //LCT02_ArrayInitialize();
             // LCT03_SyntaxLoop();
             // LCT04_LoopAndArray();
             // LCT05_Syntax2DArray();
@@ -21,14 +21,41 @@ namespace Assignment
 
         #region Lecture
 
+        public string ironManSuit; //global
         public void LCT01_SyntaxArray()
         {
-            throw new System.NotImplementedException();
+            string[] _ironManSuit = new string[2];  //Local
+            _ironManSuit[0] = "Mark 1";
+            _ironManSuit[1] = "Mark 2";
+            //_ironManSuit[2] = "Mark 3"; ห้ามเกินขนาด
+
+            string tonyStarkWear = _ironManSuit[0];
+            Debug.Log($"tonyStark wear {tonyStarkWear}");
+            Debug.Log($"room size {_ironManSuit.Length}");
+
+            Debug.Log(_ironManSuit[0]);
+            Debug.Log(_ironManSuit[1]);
         }
 
         public void LCT02_ArrayInitialize()
         {
-            throw new System.NotImplementedException();
+            string[] spidermanSuits = new string[]
+            {
+                "classic","black","iron"
+            };
+            string[] batmanSuits = new string[]
+            {
+                "classic","white"
+            };
+
+            Debug.Log($"room size {spidermanSuits.Length}");
+            Debug.Log(spidermanSuits[0]);
+            Debug.Log(spidermanSuits[1]);
+            Debug.Log(spidermanSuits[2]);
+
+            Debug.Log($"room size {batmanSuits.Length}");
+            Debug.Log(batmanSuits[0]);
+            Debug.Log(batmanSuits[1]);
         }
 
         /*
@@ -47,7 +74,20 @@ namespace Assignment
          */
         public void LCT03_SyntaxLoop()
         {
-            throw new System.NotImplementedException();
+            // For loop ที่ 1: วนลูป 10 ครั้ง (i เริ่มจาก 0 ถึง 9)
+            for (int i = 0; i < 10; i++)
+            {
+                Debug.Log("<10 : " + i);
+            }
+
+            // พิมพ์ข้อความคั่นก่อนเริ่ม for loop ที่ 2
+            Debug.Log("======================");
+
+            // For loop ที่ 2: วนลูป 10 ครั้ง (i เริ่มจาก 1 ถึง 10)
+            for (int i = 1; i <= 10; i++)
+            {
+                Debug.Log("<=10 : " + i);
+            }
         }
 
         /*
@@ -77,9 +117,22 @@ namespace Assignment
          */
         [Header("LCT04_LoopAndArray")]
         public string[] lct04_ironManSuitNames;
+
         public void LCT04_LoopAndArray()
         {
-            throw new System.NotImplementedException();
+            // ====== Log by One incrementer ======
+            Debug.Log("====== Log by One incrementer ======");
+            for (int i = 0; i < lct04_ironManSuitNames.Length; i++)
+            {
+                Debug.Log(lct04_ironManSuitNames[i]);
+            }
+
+            // ====== Log by Two incrementer ======
+            Debug.Log("====== Log by Two incrementer ======");
+            for (int i = 0; i < lct04_ironManSuitNames.Length; i += 2)
+            {
+                Debug.Log(lct04_ironManSuitNames[i]);
+            }
         }
 
         /*
@@ -114,7 +167,27 @@ namespace Assignment
          */
         public void LCT05_Syntax2DArray()
         {
-            throw new System.NotImplementedException();
+            // สร้างอาร์เรย์สองมิติ (2D array) ขนาด 3 x 3 พร้อมค่าเริ่มต้น
+            int[,] my2DArray = new int[,]
+            {
+        { 1, 2, 3 },
+        { 4, 5, 6 },
+        { 7, 8, 9 }
+            };
+
+            // ใช้ Nested Loop เพื่อวนแสดงผลข้อมูลแต่ละแถวและคอลัมน์
+            for (int row = 0; row < my2DArray.GetLength(0); row++)
+            {
+                string rowString = "";
+
+                for (int col = 0; col < my2DArray.GetLength(1); col++)
+                {
+                    rowString += my2DArray[row, col] + " ";
+                }
+
+                // แสดงผลลัพธ์ของแต่ละแถวทาง Debug.Log (ตัดช่องว่างด้านหลังออกนิดหน่อยเพื่อให้ตรงรูปแบบ)
+                Debug.Log(rowString.TrimEnd());
+            }
         }
 
         /*
@@ -150,9 +223,21 @@ namespace Assignment
             cols = 5,
             data = new int[] { 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5 }
         };
+
         public void LCT06_SizeOf2DArray()
         {
+            // แปลงข้อมูลจาก Grid2DInt เป็น int[,] 2D array
             int[,] my2DArray = lct06_my2DArray.Get2DArray();
+
+            // หาขนาดของมิติที่ 1 (จำนวนแถว หรือ row)
+            int rows = my2DArray.GetLength(0);
+
+            // หาขนาดของมิติที่ 2 (จำนวนหลัก หรือ col)
+            int cols = my2DArray.GetLength(1);
+
+            // แสดงผลลัพธ์ตามรูปแบบที่กำหนด
+            Debug.Log($"rows = {rows}");
+            Debug.Log($"cols = {cols}");
         }
 
         /*
@@ -232,13 +317,37 @@ namespace Assignment
         [Header("LCT07_SyntaxNestedLoop")]
         public int lct07_columns;
         public int lct07_rows;
+
         public void LCT07_SyntaxNestedLoop()
         {
-            throw new System.NotImplementedException();
+            // แสดงข้อความและค่าของ Column ตามรูปแบบ
+            Debug.Log("Column ...");
+            Debug.Log(lct07_columns);
+
+            // แสดงข้อความและค่าของ Row ตามรูปแบบ
+            Debug.Log("Row ...");
+            Debug.Log(lct07_rows);
+
+            // ใช้ Nested Loop เพื่อพิมพ์เครื่องหมาย '*' เป็นตารางตามขนาด rows และ columns
+            for (int i = 0; i < lct07_rows; i++)
+            {
+                string rowString = "";
+
+                for (int j = 0; j < lct07_columns; j++)
+                {
+                    rowString += "*";
+                }
+
+                // แสดงผลแถวของ '*' ออกทาง Debug.Log
+                Debug.Log(rowString);
+            }
         }
 
         #endregion
 
+
+
+        /*
         private void PrintBoard(string[,] board)
         {
             StringBuilder sb = new();
@@ -250,6 +359,7 @@ namespace Assignment
             sb.AppendLine("-------------");
             Debug.Log(sb.ToString());
         }
+        */
     }
 
 }
